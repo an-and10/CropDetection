@@ -8,10 +8,12 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
+import android.widget.TextView;
 import android.widget.Toast;
 
 public class ResultActivity extends AppCompatActivity {
     Toolbar toolbar;
+    private  TextView tv;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -19,11 +21,16 @@ public class ResultActivity extends AppCompatActivity {
         setContentView(R.layout.activity_result);
         toolbar = findViewById(R.id.toolbarresult);
         setSupportActionBar(toolbar);
+        tv = findViewById(R.id.result);
+
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setDisplayShowHomeEnabled(true);
+        Bundle bundle = getIntent().getExtras();
+        String classname = bundle.getString("ClassName");
+        tv.setText("Result:"+ classname);
 
+        Toast.makeText(this, "Result Activity:"+classname, Toast.LENGTH_SHORT).show();
 
-        Toast.makeText(this, "Result Activity", Toast.LENGTH_SHORT).show();
 
     }
 
