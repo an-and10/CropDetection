@@ -80,9 +80,9 @@ public class MainActivity extends AppCompatActivity {
 
                             // loading serialized torchscript module from packaged into app android asset model.pt,
                             // app/src/model/assets/model.pt
-                            module = Module.load(assetFilePath(MainActivity.this, "model.pt"));
+                            module = Module.load(assetFilePath(MainActivity.this, "final_model.pt"));
                         } catch (IOException e) {
-                            Log.e("PytorchHelloWorld", "Error reading assets", e);
+                            Log.e("Crop Classifier ", "Error reading assets", e);
                             finish();
                         }
 
@@ -125,8 +125,6 @@ public class MainActivity extends AppCompatActivity {
             }
 
         });
-
-
 
         Bgallery.setOnClickListener(new View.OnClickListener() {
             @Override
